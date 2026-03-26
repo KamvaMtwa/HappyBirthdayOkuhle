@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Weekend Getaway 🌊</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Cabin:wght@400;500;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --sand: #F4E4C1;
+    --ocean-light: #89CFF0;
+    --ocean-deep: #4A90A4;
+    --coral: #FF7F6B;
+    --sunset: #FFB347;
+    --palm: #2D5016;
+    --white: #FFFFFF;
+    --shadow: rgba(0,0,0,0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cabin', sans-serif;
+    background: linear-gradient(180deg, rgba(137, 207, 240, 0.7) 0%, rgba(74, 144, 164, 0.8) 50%, rgba(255, 179, 71, 0.7) 100%),
+                url('weekend-getaway.jpg') center/cover no-repeat fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+/* Animated waves */
+.waves {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat-x;
+    animation: wave 20s linear infinite;
+}
+
+.wave1 {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 Q300,0 600,60 T1200,60 L1200,120 L0,120 Z' fill='%23ffffff' fill-opacity='0.3'/%3E%3C/svg%3E");
+    background-size: 1200px 120px;
+    animation-duration: 25s;
+    opacity: 0.5;
+}
+
+.wave2 {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,80 Q300,40 600,80 T1200,80 L1200,120 L0,120 Z' fill='%23ffffff' fill-opacity='0.5'/%3E%3C/svg%3E");
+    background-size: 1200px 120px;
+    animation-duration: 20s;
+    animation-delay: -5s;
+}
+
+.wave3 {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,40 Q300,80 600,40 T1200,40 L1200,120 L0,120 Z' fill='%23ffffff' fill-opacity='0.7'/%3E%3C/svg%3E");
+    background-size: 1200px 120px;
+    animation-duration: 15s;
+}
+
+@keyframes wave {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Floating elements */
+.palm-tree {
+    position: fixed;
+    font-size: 60px;
+    opacity: 0.3;
+    z-index: 2;
+    animation: sway 6s ease-in-out infinite;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.palm1 { top: 10%; left: 5%; animation-delay: 0s; }
+.palm2 { top: 20%; right: 8%; animation-delay: 2s; }
+.palm3 { bottom: 25%; left: 10%; animation-delay: 4s; }
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+.seagull {
+    position: fixed;
+    font-size: 28px;
+    opacity: 0.5;
+    z-index: 2;
+    animation: fly 30s linear infinite;
+}
+
+@keyframes fly {
+    0% { transform: translateX(-100px) translateY(0); }
+    50% { transform: translateX(calc(100vw + 100px)) translateY(-50px); }
+    100% { transform: translateX(-100px) translateY(0); }
+}
+
+/* Main container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 10;
+    transition: opacity 0.8s ease;
+}
+
+.container.fade-out {
+    opacity: 0;
+}
+
+/* Aries Zodiac Symbol */
+.aries-symbol {
+    width: clamp(200px, 25vw, 300px);
+    height: auto;
+    margin-bottom: 30px;
+    animation: floatAries 4s ease-in-out infinite;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2));
+}
+
+@keyframes floatAries {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.05);
+    }
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+    line-height: 1.3;
+    background: rgba(74, 144, 164, 0.3);
+    padding: 20px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.subtitle {
+    font-family: 'Amatic SC', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+    background: rgba(255, 179, 71, 0.4);
+    padding: 15px 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+}
+
+/* Yes Button */
+.yes-btn {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--sunset) 100%);
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    padding: 20px 50px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 127, 107, 0.6);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.yes-btn::before {
+    content: '🌴';
+    position: absolute;
+    left: 20px;
+    font-size: 1.2rem;
+}
+
+.yes-btn::after {
+    content: '🌊';
+    position: absolute;
+    right: 20px;
+    font-size: 1.2rem;
+}
+
+.yes-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(255, 127, 107, 0.7);
+}
+
+/* No Button - Beach ball that bounces away */
+.no-btn {
+    background: linear-gradient(135deg, #FF6B9D 0%, #C06C84 50%, #F67280 100%);
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 18px 40px;
+    border: 4px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: fixed;
+    z-index: 50;
+    box-shadow: 0 6px 20px rgba(192, 108, 132, 0.5);
+}
+
+.caption {
+    position: fixed;
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.3rem;
+    color: white;
+    z-index: 49;
+    pointer-events: none;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.caption.visible {
+    opacity: 1;
+}
+
+/* Calendar Success Screen */
+.success-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(137, 207, 240, 0.95) 0%, rgba(74, 144, 164, 0.95) 50%, rgba(244, 228, 193, 0.95) 100%);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    overflow-y: auto;
+    padding: 40px 20px;
+    transition: filter 0.5s ease;
+}
+
+.success-screen.blurred {
+    filter: blur(12px);
+}
+
+.calendar-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideUp 1s ease forwards;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--ocean-light);
+    padding-bottom: 20px;
+}
+
+.calendar-title {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--ocean-deep);
+    margin-bottom: 10px;
+}
+
+.calendar-month {
+    font-family: 'Amatic SC', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: var(--coral);
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.weekday {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--ocean-deep);
+    text-align: center;
+    padding: 10px 0;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    padding: 8px;
+}
+
+.day.clickable {
+    cursor: pointer;
+}
+
+.day.clickable:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(255, 127, 107, 0.5);
+}
+
+.day-number {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.day-event {
+    font-size: 0.7rem;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.day.faded {
+    background: linear-gradient(135deg, #E8E8E8 0%, #D0D0D0 100%);
+    color: #999;
+    opacity: 0.4;
+}
+
+.day.empty {
+    background: transparent;
+}
+
+.day.special {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--sunset) 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 127, 107, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.day.birthday {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: white;
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+    animation: sparkle 1.5s ease-in-out infinite;
+    font-weight: 700;
+}
+
+.day.birthday::before {
+    content: '🎂';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.2rem;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes sparkle {
+    0%, 100% { box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5); }
+    50% { box-shadow: 0 8px 30px rgba(255, 215, 0, 0.8); }
+}
+
+/* Image Popup Modal */
+.image-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: var(--coral);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 30px 20px 20px;
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    text-align: center;
+    z-index: 10;
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    top: -20px;
+    animation: confettiFall 4s linear infinite;
+    z-index: 101;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 1;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .calendar-card {
+        padding: 25px;
+    }
+    
+    .day-event {
+        font-size: 0.6rem;
+    }
+    
+    .weekday {
+        font-size: 0.75rem;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+    }
+}
+
+/* Outfit Message */
+.outfit-message {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, var(--coral) 0%, var(--sunset) 100%);
+    color: white;
+    padding: 25px 40px;
+    border-radius: 25px;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(255, 127, 107, 0.5);
+    z-index: 150;
+    max-width: 90%;
+    line-height: 1.6;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.outfit-message.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 480px) {
+    .calendar-grid {
+        gap: 5px;
+    }
+    
+    .day-number {
+        font-size: 1rem;
+    }
+    
+    .day-event {
+        font-size: 0.5rem;
+    }
+    
+    .modal-title {
+        font-size: 1.3rem;
+        padding: 20px 15px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Decorative elements -->
+<div class="palm-tree palm1">🌴</div>
+<div class="palm-tree palm2">🌴</div>
+<div class="palm-tree palm3">🌴</div>
+<div class="seagull" style="top: 15%; animation-delay: 0s;">🕊️</div>
+<div class="seagull" style="top: 25%; animation-delay: 10s;">🕊️</div>
+
+<!-- Waves -->
+<div class="waves">
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+    <div class="wave wave3"></div>
+</div>
+
+<!-- Main Screen -->
+<div class="container" id="mainContainer">
+    <img src="aries.png" alt="Aries Zodiac" class="aries-symbol">
+    <h1>Would you share your last days<br>of your birthday month with me?</h1>
+    <p class="subtitle">A weekend getaway awaits, Okuhle... 🌊☀️</p>
+    <button class="yes-btn" id="yesBtn">Let's Go! 🏖️</button>
+    <button class="no-btn" id="noBtn">Maybe not</button>
+    <p class="caption" id="caption">Come on, you know you want to! 😉</p>
+</div>
+
+<!-- Success Screen with Calendar -->
+<div class="success-screen" id="successScreen">
+    <div class="calendar-card">
+        <div class="calendar-header">
+            <div class="calendar-title">Your Birthday Countdown 🎉</div>
+            <div class="calendar-month">March 2026</div>
+        </div>
+        
+        <div class="weekdays">
+            <div class="weekday">Sun</div>
+            <div class="weekday">Mon</div>
+            <div class="weekday">Tue</div>
+            <div class="weekday">Wed</div>
+            <div class="weekday">Thu</div>
+            <div class="weekday">Fri</div>
+            <div class="weekday">Sat</div>
+        </div>
+        
+        <div class="calendar-grid" id="calendarGrid"></div>
+    </div>
+</div>
+
+<!-- Media Modal (supports images and videos) -->
+<div class="image-modal" id="imageModal">
+    <div class="modal-content">
+        <button class="modal-close" id="closeModal">✕</button>
+        <img id="modalImage" src="" alt="Event Image" style="display: none;">
+        <video id="modalVideo" controls autoplay loop style="display: none; width: 100%; height: 100%; object-fit: contain;"></video>
+        <div class="modal-title" id="modalTitle"></div>
+    </div>
+</div>
+
+<!-- Confetti container -->
+<div id="confetti-container"></div>
+
+<!-- Outfit Message -->
+<div class="outfit-message" id="outfitMessage">
+    I know you're already thinking of outfit for Saturday, I got you babe... I'm waiting for you outside and we're gonna get the outfit 😍
+</div>
+
+<script>
+
+/* Generate Calendar for March 2026 */
+function generateCalendar() {
+    const grid = document.getElementById('calendarGrid');
+    
+    // March 2026 starts on Sunday (day 0)
+    const startDay = 0;
+    const daysInMonth = 31;
+    
+    const specialDays = {
+        27: { text: "Welcoming to our new home", media: "new-home.mp4", type: "video", title: "Our New Home! 🏡" },
+        28: { text: "Get ready for fun filled and awesome day", media: "brass-bell.webp", type: "image", title: "Brass Bell Adventure 🌊" },
+        29: { text: "🎂 Happy Birthday! 🎉", media: "birthday-cake.png", type: "image", title: "Happy 31st Birthday Okuhle! 🎉" },
+        30: { text: "We recover", media: null, type: null, title: "Recovery Day" },
+        31: { text: "We close your month with Bafana Bafana", media: "bafana-bafana.webp", type: "image", title: "Bafana Bafana Match! ⚽" }
+    };
+    
+    // Add empty cells for days before March 1st
+    for (let i = 0; i < startDay; i++) {
+        const emptyDay = document.createElement('div');
+        emptyDay.className = 'day empty';
+        grid.appendChild(emptyDay);
+    }
+    
+    // Add all days of March
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayEl = document.createElement('div');
+        
+        const dayNumber = document.createElement('div');
+        dayNumber.className = 'day-number';
+        dayNumber.textContent = day;
+        
+        if (day <= 26) {
+            dayEl.className = 'day faded';
+            dayEl.appendChild(dayNumber);
+        } else {
+            if (day === 29) {
+                dayEl.className = 'day birthday';
+            } else {
+                dayEl.className = 'day special';
+            }
+            
+            dayEl.appendChild(dayNumber);
+            
+            if (specialDays[day]) {
+                const eventText = document.createElement('div');
+                eventText.className = 'day-event';
+                eventText.textContent = specialDays[day].text;
+                dayEl.appendChild(eventText);
+                
+                // Make clickable if it has media (image or video)
+                if (specialDays[day].media) {
+                    dayEl.classList.add('clickable');
+                    dayEl.addEventListener('click', () => {
+                        openModal(specialDays[day].media, specialDays[day].title, specialDays[day].type, day);
+                    });
+                }
+            }
+            
+            // Stagger animation
+            dayEl.style.animationDelay = `${(day - 27) * 0.2}s`;
+        }
+        
+        grid.appendChild(dayEl);
+    }
+}
+
+/* Media Modal Functions */
+function openModal(mediaSrc, title, type, day) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalTitle = document.getElementById('modalTitle');
+    const successScreen = document.getElementById('successScreen');
+    
+    // Reset both media elements
+    modalImage.style.display = 'none';
+    modalVideo.style.display = 'none';
+    modalImage.src = '';
+    modalVideo.src = '';
+    
+    // Set the appropriate media element
+    if (type === 'video') {
+        modalVideo.src = mediaSrc;
+        modalVideo.style.display = 'block';
+    } else {
+        modalImage.src = mediaSrc;
+        modalImage.style.display = 'block';
+    }
+    
+    modalTitle.textContent = title;
+    modal.classList.add('active');
+    successScreen.classList.add('blurred');
+    
+    // Show outfit message if it's March 31st
+    if (day === 31) {
+        setTimeout(() => {
+            document.getElementById('outfitMessage').classList.add('show');
+        }, 800);
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const successScreen = document.getElementById('successScreen');
+    const outfitMessage = document.getElementById('outfitMessage');
+    
+    // Pause video if playing
+    if (modalVideo.src) {
+        modalVideo.pause();
+        modalVideo.currentTime = 0;
+    }
+    
+    modal.classList.remove('active');
+    successScreen.classList.remove('blurred');
+    outfitMessage.classList.remove('show');
+}
+
+document.getElementById('closeModal').addEventListener('click', closeModal);
+
+// Close modal when clicking outside the content
+document.getElementById('imageModal').addEventListener('click', (e) => {
+    if (e.target.id === 'imageModal') {
+        closeModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+/* Confetti */
+function createConfetti() {
+    const container = document.getElementById('confetti-container');
+    const colors = ['#FF7F6B', '#FFB347', '#89CFF0', '#FFD700', '#FF6B9D'];
+    
+    for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 4 + 's';
+        confetti.style.width = (Math.random() * 8 + 8) + 'px';
+        confetti.style.height = (Math.random() * 8 + 8) + 'px';
+        confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        container.appendChild(confetti);
+    }
+}
+
+/* Hide & Seek No Button */
+const noBtn = document.getElementById('noBtn');
+const caption = document.getElementById('caption');
+let firstHover = true;
+
+function moveButton() {
+    const padding = 30;
+    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+    
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+    
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+    
+    caption.style.left = x + 'px';
+    caption.style.top = (y + noBtn.offsetHeight + 10) + 'px';
+}
+
+document.addEventListener('mousemove', (e) => {
+    const rect = noBtn.getBoundingClientRect();
+    const distance = Math.hypot(
+        e.clientX - (rect.left + rect.width / 2),
+        e.clientY - (rect.top + rect.height / 2)
+    );
+    
+    if (distance < 140) {
+        // Show caption on first hover only
+        if (firstHover) {
+            caption.classList.add('visible');
+            firstHover = false;
+        }
+        moveButton();
+    }
+});
+
+window.addEventListener('load', () => {
+    moveButton();
+});
+
+/* YES button click */
+document.getElementById('yesBtn').addEventListener('click', () => {
+    document.getElementById('mainContainer').classList.add('fade-out');
+    
+    setTimeout(() => {
+        document.getElementById('successScreen').style.display = 'flex';
+        generateCalendar();
+        createConfetti();
+    }, 800);
+});
+
+</script>
+</body>
+</html>
